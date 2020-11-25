@@ -1,23 +1,21 @@
 # MICRO CRM
+Versión
 * Login
     - Admin
         * URL: [/admin/login](http://crm.com/public/admin/login)
         * User: `admin@admin.com`.
 	    * Password: `password`.
-
 ### SET UP
 * Requirements (Already covered with Docker deployment)
 	1. Apache/2.4.27 or greater.
 	2. MySQL 5.7 or greater.
 	3. PHP/7.2.24 or greater.
-
 * Deploy with Docker (Linux/Debian, Apache, MySQL, PHP)
     1. Run `docker-compose up -d`.
         [Install Docker Compose](https://docs.docker.com/compose/install/).
     2. Look for PHP/Apache Container ID with `docker ps`.
     3. Bash for the next steps => App configuration
         with `docker exec -it {PHP/Apache Container ID} bash`.
-
 * App Configuration
     1. Add host `crm.com`,
         	see [Edit hosts](https://dinahosting.com/ayuda/como-modificar-el-fichero-hosts).
@@ -42,4 +40,4 @@
     2. Import database from `fake-data/*.sql` into `voyager` DB
             with `root` user, at `localhost` host, `33063` port.
 
-*MAEN2020
+* MAEN2020
