@@ -1,5 +1,6 @@
 # MICRO CRM
-Versión
+
+Versión 1.0
 * Login
     - Admin
         * URL: [/admin/login](http://crm.com/public/admin/login)
