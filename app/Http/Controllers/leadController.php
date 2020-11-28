@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\lead;
 use Illuminate\Http\Request;
 
-class APIController extends Controller
+class leadController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,8 @@ class APIController extends Controller
      */
     public function index()
     {
-        //
+        $leads = lead::all();
+        return $leads;
     }
 
     /**
@@ -34,7 +35,8 @@ class APIController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $leads = lead::create($request->all());
+        return $leads;
     }
 
     /**
