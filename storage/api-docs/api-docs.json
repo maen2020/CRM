@@ -1,0 +1,516 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API ",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://crm.com/public"
+        }
+    ],
+    "paths": {
+        "/api/leads/{id}": {
+            "get": {
+                "tags": [
+                    "Lead"
+                ],
+                "summary": "Show",
+                "description": "Returns lead by id",
+                "operationId": "App\\Http\\Controllers\\leadController::show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "step ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "example": "Resource Found"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Step"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated."
+                    },
+                    "404": {
+                        "description": "Not Found."
+                    },
+                    "500": {
+                        "description": "CRM failure."
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Lead"
+                ],
+                "summary": "Update",
+                "description": "Update Lead",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Lead ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Lead information",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Lead"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "example": "Updated"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Lead"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated."
+                    },
+                    "404": {
+                        "description": "Not Found."
+                    },
+                    "500": {
+                        "description": "CRM failure."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Lead"
+                ],
+                "summary": "Delete",
+                "description": "Delete Lead",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Lead ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "example": "Resource Deleted"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Lead"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated."
+                    },
+                    "404": {
+                        "description": "Not Found."
+                    },
+                    "500": {
+                        "description": "CRM failure."
+                    }
+                }
+            }
+        },
+        "/api/leads": {
+            "post": {
+                "tags": [
+                    "Lead"
+                ],
+                "summary": "Store",
+                "description": "Store Lead",
+                "requestBody": {
+                    "description": "Lead information",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Lead"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "example": "Resource Store Success"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Lead"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated."
+                    },
+                    "404": {
+                        "description": "Not Found."
+                    },
+                    "500": {
+                        "description": "CRM failure."
+                    }
+                }
+            }
+        },
+        "/api/steps/{id}": {
+            "get": {
+                "tags": [
+                    "Step"
+                ],
+                "summary": "Show",
+                "description": "Returns lead by id",
+                "operationId": "App\\Http\\Controllers\\stepController::show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "step ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "example": "Resource Found"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Step"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated."
+                    },
+                    "404": {
+                        "description": "Not Found."
+                    },
+                    "500": {
+                        "description": "CRM failure."
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Step"
+                ],
+                "summary": "Update",
+                "description": "Update Lead",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Lead ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Lead information",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Step"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "example": "Updated"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Step"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated."
+                    },
+                    "404": {
+                        "description": "Not Found."
+                    },
+                    "500": {
+                        "description": "CRM failure."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Step"
+                ],
+                "summary": "Delete",
+                "description": "Delete Lead",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Lead ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "example": "Resource Deleted"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Step"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated."
+                    },
+                    "404": {
+                        "description": "Not Found."
+                    },
+                    "500": {
+                        "description": "CRM failure."
+                    }
+                }
+            }
+        },
+        "/api/steps": {
+            "post": {
+                "tags": [
+                    "Step"
+                ],
+                "summary": "Store",
+                "description": "Store step",
+                "requestBody": {
+                    "description": "Lead information",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Step"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "example": "Resource Store Success"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Step"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated."
+                    },
+                    "404": {
+                        "description": "Not Found."
+                    },
+                    "500": {
+                        "description": "CRM failure."
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Lead": {
+                "title": "Lead",
+                "description": "Lead model",
+                "required": [
+                    "name",
+                    "email",
+                    "phone",
+                    "message",
+                    "step_id"
+                ],
+                "properties": {
+                    "id": {
+                        "title": "Lead ID",
+                        "description": "Lead Identity",
+                        "type": "int",
+                        "example": 1
+                    },
+                    "phone": {
+                        "title": "Lead phone",
+                        "description": "Phone numbers Lead",
+                        "type": "int",
+                        "example": "1234567890"
+                    },
+                    "message": {
+                        "title": "message",
+                        "description": "message description",
+                        "type": "string",
+                        "example": "Lead calificado"
+                    },
+                    "step_id": {
+                        "title": "step_id",
+                        "description": "Leads status",
+                        "type": "int",
+                        "example": "1"
+                    },
+                    "email": {
+                        "title": "email",
+                        "description": "Lead email",
+                        "type": "string",
+                        "example": "adm@gmail.com"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Lead"
+                }
+            },
+            "Step": {
+                "title": "Step",
+                "description": "step model",
+                "required": [
+                    "id",
+                    "key",
+                    "value"
+                ],
+                "properties": {
+                    "id": {
+                        "title": "step ID",
+                        "description": "Lead Identity",
+                        "type": "int",
+                        "example": 1
+                    },
+                    "key": {
+                        "title": "step phone",
+                        "description": "Phone numbers Lead",
+                        "type": "int",
+                        "example": "1234567890"
+                    },
+                    "value": {
+                        "title": "message",
+                        "description": "message description",
+                        "type": "string",
+                        "example": "Lead calificado"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Lead"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Lead",
+            "description": "Lead Operations"
+        },
+        {
+            "name": "step",
+            "description": "Lead Operations"
+        }
+    ]
+}
