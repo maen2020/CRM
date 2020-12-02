@@ -36,9 +36,4 @@ Versión 1.0
 	10. Run `php artisan storage:link`.
 	11. Run `php artisan migrate`.
 
-* Load Fake Data (For Development and testing)
-    1. Copy and merge content from `fake-data/public` to `storage/app/public`.
-    2. Import database from `fake-data/*.sql` into `voyager` DB
-            with `root` user, at `localhost` host, `33063` port.
-
 * MAEN2020
