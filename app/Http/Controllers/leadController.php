@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\lead;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreRequest;
+use App\Http\Requests\UpdateRequest;
 
 class leadController extends Controller
 {
@@ -33,8 +35,9 @@ class leadController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
+      @include('lead.fragment.error');
         $leads = lead::create($request->all());
         return $leads;
     }
@@ -116,10 +119,11 @@ class leadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
-$message = [];
 
+    $message = [];
+      @include('lead.fragment.error');
       $leads = Lead::where("id",$id)->firstOrFail();
 
       if (isset($request->name)){
@@ -147,7 +151,7 @@ $message = [];
           $message[] = "Updated: ".$leads->step_id." to ".$request->step_id;
       }
 
-      $steps->save();
+      $leads->save();
 
       return [
           "message" => $message,
